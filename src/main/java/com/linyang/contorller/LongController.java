@@ -1,0 +1,13 @@
+package com.linyang.contorller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class LongController {
+
+	@RequestMapping("/long")
+	public String longpage() {
+		return "/long/index";
+	}
+}
