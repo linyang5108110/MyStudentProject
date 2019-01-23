@@ -1,4 +1,4 @@
-function test() {
+$("button").click(function () {
+    $("#www").hide();
+});
 
-     alert("ok");
-}

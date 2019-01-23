@@ -1,6 +1,7 @@
 h1 {
     color: black;
     text-align: center;
+    font-size: 40px;
 }
 
 body {
@@ -14,10 +15,7 @@ body {
     text-align: center;
 }
 
-div {
 
-
-}
 
 table, th, td {
 
