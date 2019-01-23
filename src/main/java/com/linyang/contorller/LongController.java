@@ -15,4 +15,9 @@ public class LongController {
 	public String longpage2() {
 		return "index";
 	}
+
+	@RequestMapping("/")
+	public String longpage3() {
+		return "index";
+	}
 }
