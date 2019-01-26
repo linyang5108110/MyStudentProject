@@ -12,8 +12,11 @@ public class QuickQueryDaoImpl implements QuickQueryDao {
 
 	@Override
 	public List<Record> page(String name) {
+		System.out.println(name);
 		return Db.find(
-				"select st.*,re.subjects,re.results from student as st LEFT JOIN results as re on st.id = re.student_id where st.name = ?",
+				"select student.*, results.subjects, results.results " +
+						"from student, results " +
+						"where student.id=results.student_id and name = ?",
 				name);
 	}
 }

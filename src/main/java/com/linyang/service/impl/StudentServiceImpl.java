@@ -13,25 +13,25 @@ import com.jfinal.plugin.activerecord.Record;
 
 @Service
 public class StudentServiceImpl implements StudentService {
-	@Autowired
-	StudentDao studentDao;
+    @Autowired
+    StudentDao studentDao;
 
-	public void save(Student student) {
-		studentDao.save(student);
-	}
+    public void save(Student student) {
+        studentDao.save(student);
+    }
 
-	@Override
-	public void delete(Long id) {
-		studentDao.delelte(id);
-	}
+    @Override
+    public void delete(Long id) {
+        studentDao.delelte(id);
+    }
 
-	@Override
-	public void update(long id, String name, String address, Date birthday, String comprehensive, String comments) {
-		studentDao.update(id, name, address, birthday, comprehensive, comments);
-	}
+    @Override
+    public void update(long id, String TheClass, long age, String name, String address, Date birthday, String comprehensive, String comments) {
+        studentDao.update(id, TheClass, age, name, address, birthday, comprehensive, comments);
+    }
 
-	@Override
-	public List<Record> page(long id){
-		return studentDao.page(id);
-	}
+    @Override
+    public List<Record> page(String name) {
+        return studentDao.page(name);
+    }
 }

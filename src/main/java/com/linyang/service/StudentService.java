@@ -8,12 +8,12 @@ import com.linyang.model.Student;
 
 public interface StudentService {
 
-	public void save(Student student);
+    public void save(Student student);
 
-	public void delete(Long id);
+    public void delete(Long id);
 
-	public void update(long id, String name, String address, Date birthday, String comprehensive, String comments);
-    
-	public List<Record> page(long id);
+    public void update(long id, String TheClass, long age, String name, String address, Date birthday, String comprehensive, String comments);
+
+    public List<Record> page(String name);
 
 }

@@ -13,10 +13,63 @@
     <button id="button">测试三</button>
     <button>测试四</button>
 
+    <div title="ss" class="div1">div1</div>
+    <div class="div2">div2</div>
+    <div class="div3">div3</div>
+    <div class="div4">div4</div>
+    <span class="box">span1</span>
+
+     <ul>
+         <li class="box">1</li>
+         <li class="box2">2</li>
+         <li class="box3">1</li>
+         <li><span>4</span></li>
+     </ul>
+
+
+
  <script>
 
    var $buttons = $('button')
        console.log($buttons.length,$buttons.size());
+        console.log($buttons[1].innerHTML,$buttons.get(3).innerHTML);
+        $buttons.each(function (index,domEl) {
+             console.log(index,domEl.innerHTML)
+        })
+        $buttons.each(function () {
+            console.log(this.innerHTML)
+        })
+
+     // $('div').css('background','red')
+     //  $('div.div1').css('background','red')
+     // $('.div2').css('background','red')
+     // $('div,span')'background','red'
+
+     // $('ul li').css('background','red')
+   //查找ul下 class为box下所欲兄弟元素
+   //   $('ul .box~*').css('background','red')
+   //选取ul下class为box的子元素
+   //   $('ul>.box').css('background','red')
+   // $('.box3+li').css('background','red')
+
+    //选择第一个div元素
+    //  $('div:first').css('background','red')
+     //选择最后一个class为div4的元素
+     // $('.box:last').css('background','red')
+   //选择div中class不为box元素
+    // $('div:not(".box")').css('background','red')
+   //选择li第一个和第二个元素
+   //   $('li:gt(0):lt(3)').css('background','red')
+
+     //选择li内容为1的元素
+     // $('li:contains("1")').css('background','red')
+
+     //选择又tile属性的div
+     // $('div[title]').css('background','red')
+
+     //选择tile属性value=ss的div
+     $('div[title=ss]').css('background','red')
+
 
    </script>
 </body>

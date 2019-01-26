@@ -26,6 +26,4 @@ public class JFinalConfig {
 		
 		arp.start();
 	}
-
-
 }

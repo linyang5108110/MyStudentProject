@@ -26,14 +26,15 @@ public class ResultsDaoImpl implements ResultsDao {
 
 	@Override
 	public void update(long id, String subjects, long results, long student_id) {
+		System.out.println(id + subjects + results + student_id);
 		Record record = Db.findById("results", id).set("subjects", subjects).set("results", results).set("student_id",
 				student_id);
 		Db.update("results", record);
 	}
 
 	public List<Record> query(long id) {
-		
-		return Db.find("select * from results where id = ?", id);
+		System.out.println(id);
+		return Db.find("select * from results where student_id = ?", id);
 	}
 
 }

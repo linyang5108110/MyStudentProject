@@ -23,14 +23,14 @@ public class StudentDaoImpl implements StudentDao {
 	}
 
 	@Override
-	public void update(long id, String name, String address, Date birthday, String comprehensive, String comments) {
+	public void update(long id,String TheClass,long age,String name, String address, Date birthday, String comprehensive, String comments) {
 		Student.dao.findById(id).set("name", name).set("address", address).set("birthday", birthday)
 				.set("comprehensive", comprehensive).set("comments", comments).update();
 	}
 
-	public List<Record> page(long id)
+	public List<Record> page(String name)
 	{    
-		  return Db.find("select * from student where id = ?",id);
+		  return Db.find("select * from student where name = ?",name);
 	}
    
 }

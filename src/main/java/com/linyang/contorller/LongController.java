@@ -13,11 +13,8 @@ public class LongController {
 
 	@RequestMapping("/")
 	public String longpage2() {
-		return "index";
+		return "results";
 	}
 
-	@RequestMapping("/")
-	public String longpage3() {
-		return "index";
-	}
+
 }

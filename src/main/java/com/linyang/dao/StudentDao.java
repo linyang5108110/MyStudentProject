@@ -11,7 +11,7 @@ public interface StudentDao {
 
 	public void delelte(long id);
 
-	public void update(long id, String name, String address, Date birthday, String comprehensive, String comments);
+	public void update(long id,String TheClass,long age, String name, String address, Date birthday, String comprehensive, String comments);
     
 	/**
 	 * 分页查询
@@ -20,5 +20,5 @@ public interface StudentDao {
 	 * @param id
 	 * @return
 	 */
-	public List<Record> page(long id);
+	public List<Record> page(String name);
 }

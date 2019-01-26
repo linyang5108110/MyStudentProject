@@ -3,38 +3,146 @@
 <head>
     <title>希望小学</title>
     <link rel="stylesheet" type="text/css" href="/css/test.css">
-    <script type="text/javascript" src="/long2/jquery.min.js"></script>
-    <h1>希望小学</h1>
-    <hr>
+    <link rel="stylesheet" href="/js/themes/material/easyui.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.easyui.min.js"></script>
 </head>
 <body>
+<h1>希望小学</h1>
+<hr>
+
 <div class="center">
-    <form action="/QuickQuery/page">
-        班级:<select></select>
-        姓名:<input type="text" name="name"/>
-        <input type="submit" value="查询"/>
-        <input id="button1" type="but ton" value="添加"/>
-        <input type="button" onclick="test()" value="修改">
-        <input type="button" onclick="" value="删除">
+    <form>
+        班级:<select>
+        <option></option>
+    </select>
+        姓名:<input id="text" type="text" name="name"/>
+        <input id="button1" type="button" value="查询"/>
     </form>
 </div>
-<button>点我</button>
-<P id="www">这是一个测试</P>
 
-<table class="linyang" align="center">
-    <th>姓名</th>
-    <th>学号</th>
-    <th>班级</th>
-    <tr>
-        <td>张三
-        </td>
-        <td>11
-        </td>
-        <td>
-            3班
-        </td>
-    </tr>
-</table>
+<div>
+    <table class="div_2" align="center">
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>学号</th>
+        <th>班级</th>
+        <th>出生日期</th>
+        <th>家庭地址</th>
+        <th>综合评价</th>
+        <th>老师评语</th>
+        <th>其他操作</th>
+        <tr>
+            <td id="td1"></td>
+            <td id="td2"></td>
+            <td id="td3"></td>
+            <td id="td4"></td>
+            <td id="td5"></td>
+            <td id="td6"></td>
+            <td id="td7"></td>
+            <td id="td8"></td>
+            <td>
+                <button onclick="openUpdatestudent()">修改</button>
+                <button onclick="openStudent()">添加</button>
+                <button onclick="del()">删除</button>
+                <button onclick="results()">查看成绩</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="result_div" style="display: none">
+    <P>成绩单
+        <button onclick="add()">添加科目</button>
+    </P>
+    <table align="center">
+        <th>科目</th>
+        <th>分数</th>
+        <th style="width: 200px">其他操作</th>
+        <tr>
+            <td id="results_id_1"></td>
+            <td></td>
+            <td class="tdResult">
+                <button value="删除">删除</button>
+                <button value="删除">修改</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="results_id_2"></td>
+            <td></td>
+            <td class="tdResult">
+                <button>删除</button>
+                <button>修改</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="results_id_3"></td>
+            <td></td>
+            <td class="tdResult">
+                <button>删除</button>
+                <button>修改</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="results_id_4"></td>
+            <td></td>
+            <td class="tdResult">
+                <button>删除</button>
+                <button>修改</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="results_id_5"></td>
+            <td></td>
+            <td class="tdResult">
+                <button>删除</button>
+                <button>修改</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="results_id_6"></td>
+            <td></td>
+            <td class="tdResult">
+                <button>删除</button>
+                <button>修改</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="add_student" class="easyui-dialog" title="添加学生信息" closed="true" style="width:500px;height:300px;">
+    <input id="student_1" class="easyui-textbox" label="姓名:"/><br>
+    <input id="student_2" class="easyui-textbox" label="年龄:"/><br>
+    <input id="student_3" class="easyui-textbox" label="班级:"/><br>
+    <input id="student_4" class="easyui-datebox" label="出生日期:"/><br>
+    <input id="student_5" class="easyui-textbox" label="地址:"/><br>
+    <input id="student_6" class="easyui-textbox" label="综合评价:" style="width:250px;height:50px;"/><br>
+    <button class="easyui-linkbutton" onclick="studentAdd()">提交</button>
+</div>
+
+<div id="update_student" class="easyui-dialog" title="跟新学生信息" closed="true" style="width:500px;height:300px;">
+    <input id="student_update_1" class="easyui-textbox" label="姓名:"/><br>
+    <input id="student_update_2" class="easyui-textbox" label="年龄:"/><br>
+    <input id="student_update_3" class="easyui-textbox" label="班级:"/><br>
+    <input id="student_update_4" class="easyui-datebox" label="出生日期:"/><br>
+    <input id="student_update_5" class="easyui-textbox" label="地址:"/><br>
+    <input id="student_update_6" class="easyui-textbox" label="综合评价:" style="width:250px;height:50px;"/><br>
+    <button class="easyui-linkbutton" onclick="submitUpdateStudent()">提交</button>
+</div>
+
+<div id="results_Update" class="easyui-dialog" title="成绩修改" closed="true" style="width:500px;height:300px;">
+    <input id="text1" class="easyui-textbox" label="科目:"/><br>
+    <input id="text2" class="easyui-textbox" label="分数:"/><br>
+    <button class="easyui-linkbutton" onclick="results_update()">提交</button>
+</div>
+
+<div id="resultsAdd" class="easyui-dialog" title="添加科目" closed="true" style="width:500px;height:300px;">
+    <input id="text3" class="easyui-textbox" label="科目:"/><br>
+    <input id="text4" class="easyui-textbox" label="分数:"/><br>
+    <button class="easyui-linkbutton" onclick="results_Add()">提交</button>
+</div>
+
+<script src="/js/student.js"></script>
 </body>
-<script type="text/javascript" src="/js/test.js"></script>
 </html>

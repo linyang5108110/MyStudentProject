@@ -1,13 +1,12 @@
 package com.linyang.contorller;
 
-import java.util.List;
 
+import com.linyang.common.R;
 import com.linyang.service.ResultsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jfinal.plugin.activerecord.Record;
 
 @RestController
 @RequestMapping("/results")
@@ -23,6 +22,7 @@ public class ResultsController {
 
 	@RequestMapping("delete")
 	public void delete(long id) {
+		System.out.println(id);
 		resultservice.delete(id);
 	}
 
@@ -32,9 +32,8 @@ public class ResultsController {
 	}
 
 	@RequestMapping("query")
-	public List<Record> query(long id) {
-		return resultservice.query(id);
-
+	public R query(long id) {
+		return R.ok().setData(resultservice.query(id));
 	}
 
 }
